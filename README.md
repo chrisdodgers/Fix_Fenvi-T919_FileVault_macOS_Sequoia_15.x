@@ -1,4 +1,4 @@
-# How to fix Fenvi T919 Wi-Fi on macOS 15.2 Sequoia using OCLP, and how to enable FileVault without errors
+# How to fix Fenvi T919 Wi-Fi on macOS 15.2 Sequoia using OCLP and How to Fix Setting Up FileVault 
 [![FenviT919](https://img.shields.io/badge/Fenvi-T919-green)](https://www.fenvi.com/product_detail_16.html)
 ![MacOS](https://img.shields.io/badge/macOS-15.2-purple.svg)
 
@@ -6,18 +6,18 @@
 ![SequoiaLogo](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/FenviT919%2BFileVault-Sequoia.png)</br>
 
 ## About:
-This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia. macOS 14+ has broken native support for BCM4360, which is the Wi-Fi chipset on a Fenvi T919. This guide has been tested and works perfectly on macOS 15.2. This guide will also how to setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia.
+This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia. macOS 14+ has broken native support for BCM4360, which is the Wi-Fi chipset on a Fenvi T919. This guide has been tested and works perfectly on macOS 15.2. This guide will also include how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia.
 
 ## What Works:
 
 | Feature           | Details       |
 | ------------------: | :-----------|
-|Airdrop         	| Works Perfect |
-| AirPlay           | Works Perfect |
-| Handoff           | Works Perfect |
-| Continuity        | Works Perfect |
-| Universal Control |Usually Works (I noticed even on my real Macs this is finicky on Sequoia. Sometimes re-signing in with my Apple ID fixes UC)      
-| FileVault         | Works Perfect |
+| AirDrop         	| ✅ Works perfect |
+| AirPlay           | ✅ Works perfect |
+| Handoff           | ✅ Works perfect |
+| Continuity        | ✅ Works perfect |
+| Universal Control | ✅ Usually works (I noticed even on my real Macs this is finicky on Sequoia. Sometimes re-signing in with my Apple ID fixes UC)      
+| FileVault         | ✅ Works perfect once setup |
 
 
 ## Pre-Requisites:
@@ -57,10 +57,10 @@ We also need to download AMFIPass. At the time of this guide, we will be using A
 >
 
 >[!NOTE]
->If you do not already see this in your config.plist, you need to add this. If you made your own EFI from scratch using the latest version of OpenCore and if you followed the Dortania guide, this entry should have already been included by default with `Enabled` = `False`. It is ALWAYS highly recommended to make your own EFIs from scratch and to follow the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/)!
+>If you do not already see this in your config.plist, then you need to add this. If you made your own EFI from scratch using the latest version of OpenCore and followed the Dortania guide, then this entry should have already been included by default with `Enabled` = `False`. It is ALWAYS highly recommended to make your own EFIs from scratch and to follow the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/)!
 
-### Configuring Partial-SIP:
-OCLP (OpenCore Legacy Patcher) requires a minimum of Partial-SIP (System Integrity Protection) in order to perform root patching, which we have to do in order to have working Wi-Fi again. You can disable SIP entirely, but for security reasons and for application support reasons I do NOT recommend fully disabling SIP. 
+### Configuring Partial SIP:
+OCLP (OpenCore Legacy Patcher) requires a minimum of Partial SIP (System Integrity Protection) in order to perform root patching, which we have to do in order to have working Wi-Fi again. You can disable SIP entirely, but for security reasons and for application support reasons I do NOT recommend fully disabling SIP. 
 
 - Navigate to `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config`.
 - Change the Data value of csr-active-config to `03080000` which sets SIP to Partial.
@@ -97,7 +97,7 @@ I discovered when I tried to enable FileVault, I would get an "Invalid Password"
 2. **Enable FileVault in System Settings**:
    - At this point before enabling FileVault, in System Settings you could go ahead and sign-in with your Apple ID. Doing so before turning on FileVault will allow you the option to save your encryption key to iCloud.
    - Enable FileVault and be patient while FileVault encrypts your volume.
-3. **Enable Full SIP**:
+3. **Enable Partial SIP**:
    - Now that FileVault has completed its setup, go ahead and go back to Partial SIP by setting the `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config` value back to `03080000`.
    - Reboot system. (Once again, I would recommend that you reset your NVRAM.)
 
