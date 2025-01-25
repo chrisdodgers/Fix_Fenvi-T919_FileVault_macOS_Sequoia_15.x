@@ -29,7 +29,7 @@ This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS 
 ### Configuring Required Kexts:
 You need to download the 2 following kexts which you can find by using [this link.](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)
 
-- `IOSkywalFamily-v1.2.0.zip`
+- `IOSkywalkFamily-v1.2.0.zip`
 - `IO80211FamilyLegacy-v1.0.0.zip`
 
 >[!NOTE]
