@@ -26,7 +26,7 @@ This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS 
 
 
 ## Fixing Wifi:
-### Configuring
+### Configuring Required Kexts:
 You need to download the 2 following kexts which you can find by using [this link.](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)
 
 - `IOSkywalFamily-v1.2.0.zip`
@@ -63,7 +63,7 @@ We also need to download AMFIPass. At the time of this guide, we will be using A
 OCLP (OpenCore Legacy Patcher) requires a minimum of Partial-SIP (System Integrity Protection) in order to perform root patching, which we have to do in order to have working Wi-Fi again. You can disable SIP entirely, but for security reasons and for application support reasons I do NOT recommend fully disabling SIP. 
 
 - Navigate to `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config`.
-- Change the Data vlue of csr-active-config to `03080000` which sets SIP to Partial.
+- Change the Data value of csr-active-config to `03080000` which sets SIP to Partial.
 - Make sure to save your config.plist!
 
 ### Applying OCLP Root Patches:
