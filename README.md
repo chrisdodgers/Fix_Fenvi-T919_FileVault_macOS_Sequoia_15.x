@@ -53,11 +53,11 @@ We also need to download AMFIPass. At the time of this guide, we will be using A
 ![KernelBlock](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/Kernel-Block-Config.png)</br>
 
 >[!IMPORTANT]
->If you do not set this entry to `Enabled`=`True`, then you will kernel panic at boot! This is because the newly added IOSkywalkFamily kext will conflict with the one we are trying to replace! 
+>**If you do not set this entry to `Enabled`=`True`, then you will kernel panic at boot! This is because the newly added IOSkywalkFamily kext will conflict with the one we are trying to replace!** 
 >
->If you do not have this entry to block IOSkywalkFamily in your config.plist:
+>**If you do not already have this entry in your config.plist:**
 >
-> - You can easily do this in ProperTree by right-clicking on `Kernel` and in the drop-down menu, select `OpenCore` -> `Kernel -> Block` -> `IOSkywalkFamily (Sonoma+)`. This will add the entry you need.
+> - You can easily add this in ProperTree by right-clicking on `Kernel` and in the drop-down menu, select `OpenCore` -> `Kernel -> Block` -> `IOSkywalkFamily (Sonoma+)`. This will add the entry you need.
 >
 >![ProperTreeAddIOSkywalkFamily](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/ProperTree-Add-IOSkywalkFamily-Entry.png)</br>
 
@@ -76,18 +76,20 @@ OCLP (OpenCore Legacy Patcher) requires a minimum of Partial SIP (System Integri
 
 - Navigate to `Misc -> Security -> SecureBootModel`. Make sure this is set to `Disabled`.
 
+![SecureBootModelDisabled](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/SecureBootModel-Disabled.png)</br>
+
 >[!NOTE]
 >
 >- You will have issues with macOS updates and OCLP if this is not set to `Disabled`!
->  - ONLY if this was previously NOT set to `Disabled`, you will need to perform a NVRAM reset for this to fully take effect!
+>  - If this was previously NOT set to `Disabled`, then you will need to perform a NVRAM reset for this to fully take effect!
 		- You can perform a NVRAM reset by first ensuring `ResetNvramEntry.efi` is in your `EFI -> OC -> Drivers` folder. In the OpenCore BootPicker - you can then presss the Space Bar and you will see an option to `Reset NVRAM`). 
 
-![SecureBootModelDisabled](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/SecureBootModel-Disabled.png)</br>
+
 		
 ### Adding Required Patches/Boot-Args for FileVault (Optional):
 You will need to follow this section of the guide only if you plan on using FileVault. If you do not plan on using FileVault, you can skip this section of the guide.
 
-1. We need to add a kernel patch which allows FileVault to be enabled with SIP lowered. 
+1. We need to add a kernel patch which allows FileVault to be enabled with SIP lowered: 
   - You can download [this patch](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Files/Add_This_Patch_To_Your_Config.plist) which you can copy the contents into the `Kernel -> Patch` section of your config.plist.
   
 >[!NOTE]
@@ -99,7 +101,7 @@ You will need to follow this section of the guide only if you plan on using File
 
 ![KernelPatch](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/Add-FileVault-Kernel-Patch.png)</br>
 
-2. We need to add a NVRAM variable that allows OCLP to apply root patches with FileVault enabled. (Without this, OCLP will return an error asking you to disable FileVault when attempting to apply root patches.)
+2. We need to add a NVRAM variable that allows OCLP to apply root patches with FileVault enabled. *Without this, OCLP will return an error asking you to disable FileVault when attempting to apply root patches.*:
  - Navigate to `NVRAM -> Add -> 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102`
  - Right-click on `4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102` and select `New child under 4D1F...`
  - Rename `New String` to `OCLP-Settings`
