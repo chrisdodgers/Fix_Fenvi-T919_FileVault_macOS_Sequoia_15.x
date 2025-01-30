@@ -6,7 +6,7 @@
 ![SequoiaLogo](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/FenviT919%2BFileVault-Sequoia.png)</br>
 
 ## About:
-This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia. macOS 14+ has broken native support for BCM4360, which is the Wi-Fi chipset used on a Fenvi T919. This guide has been tested and works on macOS 15.3. This guide will also include how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
+This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia. macOS 14+ has broken native support for BCM4360, which is the Wi-Fi chipset used on a Fenvi T919. This guide has been tested and works on macOS 15.3. This guide also includes how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
 
 ## What Works:
 
@@ -36,7 +36,7 @@ You need to download the 2 following kexts which you can find by using [this lin
 >*These kexts are older kexts which gives our BCM4360 chipset support again. You can read more detailed information about this [here.](https://github.com/perez987/Broadcom-wifi-back-on-macOS-Sonoma-with-OCLP/blob/main/README.md)*
 >
 
-We also need to download AMFIPass. At the time of this guide, we will be using AMFIPass v1.4.1. This is required to use OCLP on our Seqouia install. You can find and download the latest version of AMFIPass [here.](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera). 
+We also need to download AMFIPass. At the time of this guide, we will be using AMFIPass v1.4.1. This is required to use OCLP on our Seqouia install. [Download](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera) the latest version of AMFIPass.
 
 >[!NOTE]
 >The other alternative instead of installing AMFIPass.kext is to use the boot-arg `amfi=0x80` which fully disables AMFI. However, using this boot-arg could cause some applications or services not to work correctly! So I highly recommend just using AMFIPass.kext instead of using the `amfi=0x80` boot-arg.
@@ -53,7 +53,7 @@ We also need to download AMFIPass. At the time of this guide, we will be using A
 ![KernelBlock](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/Kernel-Block-Config.png)</br>
 
 >[!IMPORTANT]
->If you do not set this entry to `Enabled`=`True` you will kernel panic at boot! This is because the newly added IOSkywalkFamily kext will conflict with the one we are trying to replace! 
+>If you do not set this entry to `Enabled`=`True`, then you will kernel panic at boot! This is because the newly added IOSkywalkFamily kext will conflict with the one we are trying to replace! 
 >
 >If you do not have this entry to block IOSkywalkFamily in your config.plist:
 >
@@ -67,8 +67,8 @@ OCLP (OpenCore Legacy Patcher) requires a minimum of Partial SIP (System Integri
 - Navigate to `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config`.
 - Change the Data value of csr-active-config to `03080000` which sets SIP to Partial.
 
-[!NOTE]
-> I would highly recommend adding an entry for `csr-active-config` under `NVRAM -> Delete -> 7C436110-AB2A-4BBB-A880-FE41995C9F82`. Doing this will always ensure the `csr-active-config` value stored in your NVRAM will always be up-to-date with the value set under `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config`. Now we don't have to reset NVRAM each time we change our csr-active-config! (You can do this for other NVRAM variables like boot-args for example. Thank you [corpnewt](https://github.com/corpnewt) for this great tip!) 
+>[!NOTE]
+> I would highly recommend adding an entry for `csr-active-config` under `NVRAM -> Delete -> 7C436110-AB2A-4BBB-A880-FE41995C9F82`. Doing this will always ensure the `csr-active-config` value stored in your NVRAM will always be up-to-date with the value you have set in your config.plist. This means we do not have to reset NVRAM each time we change our csr-active-config. (You can do this for other NVRAM variables like boot-args for example. Thank you [corpnewt](https://github.com/corpnewt) for this great tip!) 
 
 ![SetSipPartial](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/Set-SIP-Partial.png)</br>
 
@@ -79,7 +79,7 @@ OCLP (OpenCore Legacy Patcher) requires a minimum of Partial SIP (System Integri
 >[!NOTE]
 >
 >- You will have issues with macOS updates and OCLP if this is not set to `Disabled`!
->  - If this was previously NOT set to `Disabled`, you will need to perform a NVRAM reset for this to fully take effect!
+>  - ONLY if this was previously NOT set to `Disabled`, you will need to perform a NVRAM reset for this to fully take effect!
 		- You can perform a NVRAM reset by first ensuring `ResetNvramEntry.efi` is in your `EFI -> OC -> Drivers` folder. In the OpenCore BootPicker - you can then presss the Space Bar and you will see an option to `Reset NVRAM`). 
 
 ![SecureBootModelDisabled](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/SecureBootModel-Disabled.png)</br>
@@ -101,11 +101,11 @@ You will need to follow this section of the guide only if you plan on using File
 
 2. We need to add a NVRAM variable that allows OCLP to apply root patches with FileVault enabled. (Without this, OCLP will return an error asking you to disable FileVault when attempting to apply root patches.)
  - Navigate to `NVRAM -> Add -> 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102`
- - Right-click on `4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102` and select `New child under 4D1F...`.
- - Rename `New String` to `OCLP-Settings`.
- - Set the value of `OCLP-Settings` to `-allow_fv`.
+ - Right-click on `4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102` and select `New child under 4D1F...`
+ - Rename `New String` to `OCLP-Settings`
+ - Set the value of `OCLP-Settings` to `-allow_fv`
  - Navigate to `NVRAM -> Delete -> 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102`
- - Right-click on `4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102` and select `New child under 4D1F...`.
+ - Right-click on `4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102` and select `New child under 4D1F...`
  - Set the string value to `OCLP-Settings`
 
 ![OCLPSettings](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/Add-OCLP-Settings.png)</br>
