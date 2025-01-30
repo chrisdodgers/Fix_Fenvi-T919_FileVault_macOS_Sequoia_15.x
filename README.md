@@ -1,6 +1,7 @@
-# How to Fix Fenvi T919 Wi-Fi on macOS 15.2 Sequoia using OCLP and How to Fix Setting Up FileVault 
+# How to Fix Fenvi T919 Wi-Fi on macOS 15.3 Sequoia using OCLP and How to Fix Setting Up FileVault 
 [![FenviT919](https://img.shields.io/badge/Fenvi-T919-green)](https://www.fenvi.com/product_detail_16.html)
-![MacOS](https://img.shields.io/badge/macOS-15.2-purple.svg)
+![MacOS](https://img.shields.io/badge/FileVault-blue.svg)
+![MacOS](https://img.shields.io/badge/macOS-15.3-purple.svg)
 
 
 ![SequoiaLogo](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/FenviT919%2BFileVault-Sequoia.png)</br>
