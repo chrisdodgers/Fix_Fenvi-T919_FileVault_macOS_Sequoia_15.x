@@ -128,7 +128,7 @@ You will need to follow this section of the guide only if you plan on using File
 4. Reboot your system once prompted to.
 
 ### Wi-Fi and FileVault (Optional) should now be 100% working on macOS Sequoia 15.3!
-- I will to keep this guide up-to-date and provide further information relating to these fixes when new macOS Sequoia updates arrive and once I've tested them.
+- I will try to keep this guide up-to-date and provide further information relating to these fixes when new macOS Sequoia updates arrive and once I've tested them.
 - *If necessary, I may add an update proceedure and additional helpful information to this guide.* 
 
 ## Photos:
