@@ -90,17 +90,19 @@ OCLP (OpenCore Legacy Patcher) requires a minimum of Partial SIP (System Integri
 ### Adding Required Patches/Boot-Args for FileVault (Optional):
 You will need to follow this section of the guide only if you plan on using FileVault. If you do not plan on using FileVault, you can skip this section of the guide.
 
-1. We need to add a kernel patch which allows FileVault to be enabled with SIP lowered: 
-  - You can download [this patch](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Files/Add_This_Patch_To_Your_Config.plist) which you can copy the contents into the `Kernel -> Patch` section of your config.plist.
+1. We need to add a kernel patch which will allow FileVault to be enabled with SIP lowered: 
+  - Clone/download the latest version of [ProperTree Editor](https://github.com/corpnewt/ProperTree) which includes the FileVault patch we need.
+  - In ProperTree, navigate to `Kernel -> Patch`.
+  - Right-click on 'Patch' and in the drop-down menu, select `OpenCore` -> `Kernel -> Patch` -> `Force FileVault on Broken Seal (11.3+)`. This will add the patch you need.
+
+![AddFVKernelPatch](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/Add-FileVault-Kernel-Patch.png)</br>
+
+![FVKernelPatchApplied](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/FileVault-Kernel-Patch.png)</br>  
   
 >[!NOTE]
 > 
-> - Open the patch file you just downloaded in ProperTree.
-> - Right-click on `0` and select `Copy(Cmd+C)` in the drop-down menu.
-> - Go back to your config.plist in ProperTree and navigate to `Kernel -> Patch`.
-> - Right-click on `Patch` and select `Paste(Cmd+V)` in the drop-down menu.
+> - *(Optionally, if you would like to instead manually add this patch - you can find it [here](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Files/Patch_Force-FileVault-on-Broken-Seal.plist)*
 
-![KernelPatch](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/Add-FileVault-Kernel-Patch.png)</br>
 
 2. We need to add a NVRAM variable that allows OCLP to apply root patches with FileVault enabled. *Without this, OCLP will return an error asking you to disable FileVault when attempting to apply root patches.*:
  - Navigate to `NVRAM -> Add -> 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102`
@@ -144,8 +146,8 @@ You will need to follow this section of the guide only if you plan on using File
 
 ## Credits and Thanks:
 - Apple for macOS
-- [perez987](https://github.com/perez987/Broadcom-wifi-back-on-macOS-Sonoma-with-OCLP/blob/main/README.md) for the original guide I read fixing Fenvi T919 on macOS 14+.
-- [Corpnewt](https://github.com/corpnewt) for providing very helpful information which is used in this guide. (And for creating ProperTree, and other great software like MountEFI and SSDTTime).
+- [perez987](https://github.com/perez987/Broadcom-wifi-back-on-macOS-Sonoma-with-OCLP/blob/main/README.md) for the original guide I read for fixing Fenvi T919 on macOS 14+.
+- [Corpnewt](https://github.com/corpnewt) for providing very helpful information/resources which was used in this guide. (And for creating ProperTree, and other great software like MountEFI and SSDTTime).
 - Acidanthera for [OpenCore Bootloader](https://github.com/acidanthera/OpenCorePkg) and countless Kexts.
 - Dortania for [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide) and [OpenCore Legacy Pacher](https://dortania.github.io/OpenCore-Legacy-Patcher/).
 - [mrlimerunner](https://github.com/mrlimerunner/sonoma-wifi-hacks?tab=readme-ov-file) for an older guide with good information.
