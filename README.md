@@ -1,13 +1,13 @@
-# How to Fix Fenvi T919 Wi-Fi on macOS 15.3 Sequoia using OCLP and How to Fix Setting Up FileVault 
+# How to Fix Fenvi T919 Wi-Fi on macOS 15.3.1 Sequoia using OCLP and How to Fix Setting Up FileVault 
 [![FenviT919](https://img.shields.io/badge/Fenvi-T919-green)](https://www.fenvi.com/product_detail_16.html)
 ![MacOS](https://img.shields.io/badge/FileVault-blue.svg)
-![MacOS](https://img.shields.io/badge/macOS-15.3-purple.svg)
+![MacOS](https://img.shields.io/badge/macOS-15.3.1-purple.svg)
 
 
 ![SequoiaLogo](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/FenviT919%2BFileVault-Sequoia.png)</br>
 
 ## About:
-This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia. macOS 14+ has broken native support for BCM4360, which is the Wi-Fi chipset used on a Fenvi T919. This guide has been tested and works on macOS 15.3. This guide also includes how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
+This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia. macOS 14+ has broken native support for BCM4360, which is the Wi-Fi chipset used on a Fenvi T919. This guide has been tested and works on macOS 15.3.1. This guide also includes how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
 
 ## What Works:
 
@@ -129,7 +129,7 @@ You will need to follow this section of the guide only if you plan on using File
 
 4. Reboot your system once prompted to.
 
-### Wi-Fi and FileVault (Optional) should now be 100% working on macOS Sequoia 15.3!
+### Wi-Fi and FileVault (Optional) should now be 100% working on macOS Sequoia 15.3.1!
 - I will try to keep this guide up-to-date and provide further information relating to these fixes when new macOS Sequoia updates arrive and once I've tested them.
 - *If necessary, I may add an update proceedure and additional helpful information to this guide.* 
 
