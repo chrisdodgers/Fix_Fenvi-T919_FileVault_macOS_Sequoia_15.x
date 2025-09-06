@@ -1,13 +1,13 @@
 # How to Fix Fenvi T919 Wi-Fi on macOS 15.6.1 Sequoia using OCLP and How to Fix Setting Up FileVault 
 [![FenviT919](https://img.shields.io/badge/Fenvi-T919-green)](https://www.fenvi.com/product_detail_16.html)
 ![MacOS](https://img.shields.io/badge/FileVault-blue.svg)
-![MacOS](https://img.shields.io/badge/macOS-15.3.1-purple.svg)
+![MacOS](https://img.shields.io/badge/macOS-15.6.1-purple.svg)
 
 
 ![SequoiaLogo](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/FenviT919%2BFileVault-Sequoia.png)</br>
 
 ## About:
-This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia (This guide also applies to macOS Sonoma). macOS 14+ has broken native support for BCM4360, which is the Wi-Fi chipset used on a Fenvi T919. This guide has been tested and works on macOS 15.3.1. This guide also includes how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
+This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia (This guide also applies to macOS Sonoma 14.4+). macOS 14+ has broken native support for BCM4360, which is the Wi-Fi chipset used on a Fenvi T919. This guide has been tested and works on macOS 15.6.1. This guide also includes how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
 
 
 >[!IMPORTANT]
@@ -44,7 +44,7 @@ You need to download the 2 following kexts which you can find by using [this lin
 We also need to download AMFIPass. At the time of this guide, we will be using AMFIPass v1.4.1. This is required to use OCLP on our Seqouia install. [Download](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera) the latest version of AMFIPass.
 
 >[!NOTE]
->The other alternative instead of installing AMFIPass.kext is to use the boot-arg `amfi=0x80` which fully disables AMFI. However, using this boot-arg could cause some applications or services not to work correctly! So I highly recommend just using AMFIPass.kext instead of using the `amfi=0x80` boot-arg.
+>The other alternative instead of using the AMFIPass kext is to use the boot-arg `amfi=0x80` which fully disables AMFI. However, using this boot-arg could cause some applications or services not to work correctly! So I highly recommend just using AMFIPass instead of using the `amfi=0x80` boot-arg.
 >
 
 1. Copy the 3 kexts you downloaded into your EFI folder. (Place them under `EFI -> OC-> Kexts`)
