@@ -1,17 +1,17 @@
-# How to Fix Fenvi T919 Wi-Fi on macOS 15.7 Sequoia using OCLP and How to Fix Setting Up FileVault 
+# How to Fix Fenvi T919 Wi-Fi up to macOS 15.7.1 Sequoia using OCLP and How to Fix Setting Up FileVault 
 [![FenviT919](https://img.shields.io/badge/Fenvi-T919-green)](https://www.fenvi.com/product_detail_16.html)
 ![MacOS](https://img.shields.io/badge/FileVault-blue.svg)
-![MacOS](https://img.shields.io/badge/macOS-15.7-purple.svg)
+![MacOS](https://img.shields.io/badge/macOS-15.7.1-purple.svg)
 
 
 ![SequoiaLogo](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/FenviT919%2BFileVault-Sequoia.png)</br>
 
 ## About:
-This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia (This guide also applies to macOS Sonoma 14.4+). macOS 14.4+ has broken native support for BCM4360, which is the Wi-Fi chipset used on the Fenvi T919. This guide has been tested up to macOS 15.7. This guide also includes how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
+This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia (This guide also applies to macOS Sonoma 14.4+). macOS 14.4+ has broken native support for the BCM94360CD, which is the Wi-Fi chipset used on the Fenvi T919. This guide has been tested up to macOS 15.7.1. This guide also includes how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
 
 
 >[!IMPORTANT]
->Do NOT attempt this guide on macOS Tahoe as it will fail at the current moment. Please be kind and patient while the great folks behind OCLP work on updating patches needed to support macOS Tahoe.  
+>Do NOT attempt this guide on macOS Tahoe as it will fail at the current moment. Please be kind and patient while the great folks behind OCLP work on updating patches needed to support macOS Tahoe. Once support is added, I will perform some testing and update this guide to reflect the added working support. Once again, at this current time this is broken on macOS Tahoe.  
 >
 ## What Works:
 
@@ -26,19 +26,19 @@ This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS 
 
 
 ## Pre-Requisites:
-- You have already installed macOS 15.x Sequoia on your system following the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/).
+- You have already installed macOS 15.x Sequoia (or macOS 14.4+ Sonoma) on your system following the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/).
 - You have a Fenvi T919 installed in your system.
 
 
 ## Configuring our config.plist:
 ### Downloading and Configuring Required Kexts:
-You need to download the 2 following kexts which you can find by using [this link.](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)
+You will need to download the 2 following kexts which you can find by using [this link.](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)
 
 - `IOSkywalkFamily-v1.2.0.zip`
 - `IO80211FamilyLegacy-v1.0.0.zip`
 
 >[!NOTE]
->*These kexts are older kexts which gives our BCM4360 chipset support again. You can read more detailed information about this [here.](https://github.com/perez987/Broadcom-wifi-back-on-macOS-Sonoma-with-OCLP/blob/main/README.md)*
+>*These kexts are older kexts which gives our BCM94360CD chipset support again. You can read more detailed information about this [here.](https://github.com/perez987/Broadcom-wifi-back-on-macOS-Sonoma-with-OCLP/blob/main/README.md)*
 >
 
 We also need to download AMFIPass. At the time of this guide, we will be using AMFIPass v1.4.1. This is required to use OCLP on our Seqouia install. [Download](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera) the latest version of AMFIPass.
@@ -133,7 +133,7 @@ You will need to follow this section of the guide only if you plan on using File
 
 4. Reboot your system once prompted to.
 
-### Wi-Fi and FileVault (Optional) should now be 100% working on macOS Sequoia 15.7!
+### Wi-Fi and FileVault (Optional) should now be 100% working on macOS Sequoia/Sonoma!
 - I will try to keep this guide up-to-date and provide further information relating to these fixes when new macOS Sequoia updates arrive and once I've tested them.
 - *If necessary, I may add an update proceedure and additional helpful information to this guide.* 
 
