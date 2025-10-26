@@ -137,6 +137,13 @@ You will need to follow this section of the guide only if you plan on using File
 - I will try to keep this guide up-to-date and provide further information relating to these fixes when new macOS Sequoia updates arrive and once I've tested them.
 - *If necessary, I may add an update proceedure and additional helpful information to this guide.* 
 
+### Additional support (if needed)
+If you find yourself needing additional support - the helpers in the [RebaseRegions Paradise Discord](https://discord.gg/N3Xa7h3yCy) may be able to help answer questions you have. 
+
+>[!NOTE]
+> 
+> Root patching is generally unsupported and not advised for hackintoshes. Do NOT seek additional help for root patching in the /r/Hackintosh Paradise Discord or the OpenCore Patcher Paradise Discord (or the related subreddits). NO SUPPORT will be given to you there regarding root patching for hackintosh. 
+
 ## Photos:
 
 ![WiFiProof](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/Wi-Fi-Proof-Sequoia.png)</br>
