@@ -137,7 +137,7 @@ You will need to follow this section of the guide only if you plan on using File
 - I will try to keep this guide up-to-date and provide further information relating to these fixes when new macOS Sequoia updates arrive and once I've tested them.
 - *If necessary, I may add an update proceedure and additional helpful information to this guide.* 
 
-### Additional support (if needed)
+### Additional support (if needed):
 If you find yourself needing additional support - the helpers in the [RebaseRegions Paradise Discord](https://discord.gg/N3Xa7h3yCy) may be able to help answer questions you have. 
 
 >[!NOTE]
