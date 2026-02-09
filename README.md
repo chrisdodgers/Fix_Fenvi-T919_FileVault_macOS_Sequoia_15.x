@@ -1,18 +1,17 @@
-# How to Fix Fenvi T919 Wi-Fi up to macOS 15.7.1 Sequoia using OCLP and How to Fix Setting Up FileVault 
+# How to Fix Fenvi T919 Wi-Fi up to macOS 15.7.3 Sequoia using OCLP and How to Fix Setting Up FileVault 
 [![FenviT919](https://img.shields.io/badge/Fenvi-T919-green)](https://www.fenvi.com/product_detail_16.html)
 ![MacOS](https://img.shields.io/badge/FileVault-blue.svg)
-![MacOS](https://img.shields.io/badge/macOS-15.7.1-purple.svg)
+![MacOS](https://img.shields.io/badge/macOS-15.7.3-purple.svg)
 
 
 ![SequoiaLogo](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/FenviT919%2BFileVault-Sequoia.png)</br>
 
 ## About:
-This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia (This guide also applies to macOS Sonoma 14.4+). macOS 14.4+ has broken native support for the BCM94360CD, which is the Wi-Fi chipset used on the Fenvi T919. This guide has been tested up to macOS 15.7.1. This guide also includes how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
+This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia (This guide also applies to macOS Sonoma 14+). macOS 14+ has broken native support for the BCM94360CD, which is the Wi-Fi chipset used on the Fenvi T919. This guide has been tested up to macOS 15.7.3. This guide also includes how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
 
 
 >[!IMPORTANT]
->Do NOT attempt this guide on macOS Tahoe as it will fail at the current moment. Please be kind and patient while the great folks behind OCLP work on updating patches needed to support macOS Tahoe. Once support is added, I will perform some testing and update this guide to reflect the added working support. Once again, at this current time this is broken on macOS Tahoe.  
->
+>Update on macOS Tahoe: As of this point of writing - this guide does apply to macOS Tahoe*. HOWEVER, I would strongly suggest patiently waiting until the great hardworking folks at Dortania provide an official release package to download. You *can* clone and compile as of right now with success, as I've done in my personal testing (or can grab a recent fork out there). Once again - I recommend sitting tight and waiting for an official release package from Dortania.   
 ## What Works:
 
 | Feature           | Details       |
@@ -26,7 +25,7 @@ This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS 
 
 
 ## Pre-Requisites:
-- You have already installed macOS 15.x Sequoia (or macOS 14.4+ Sonoma) on your system following the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/).
+- You have already installed macOS 15.x Sequoia (or macOS 14+ Sonoma) on your system following the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/).
 - You have a Fenvi T919 installed in your system.
 
 
@@ -157,10 +156,9 @@ If you find yourself needing additional support - the helpers in the [RebaseRegi
 
 ## Credits and Thanks:
 - Apple for macOS
-- [perez987](https://github.com/perez987/Broadcom-wifi-back-on-macOS-Sonoma-with-OCLP/blob/main/README.md) for the original guide I read for fixing Fenvi T919 on macOS 14.4+.
-- [Corpnewt](https://github.com/corpnewt) for providing very helpful information/resources which was used in this guide. (And for creating ProperTree, and other great software like MountEFI and SSDTTime).
-- Acidanthera for [OpenCore Bootloader](https://github.com/acidanthera/OpenCorePkg) and countless Kexts.
+- [perez987](https://github.com/perez987/Broadcom-wifi-back-on-macOS-Sonoma-with-OCLP/blob/main/README.md) for the original guide I read for fixing Fenvi T919 on macOS 14+.
+- [Corpnewt](https://github.com/corpnewt) for providing very helpful information/resources which was used in this guide. (And for creating ProperTree, and other great software like MountEFI and SSDTTime, etc.).
+- Acidanthera for [OpenCore Bootloader](https://github.com/acidanthera/OpenCorePkg) and countless kexts and contributions.
 - Dortania for [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide) and [OpenCore Legacy Pacher](https://dortania.github.io/OpenCore-Legacy-Patcher/).
 - [mrlimerunner](https://github.com/mrlimerunner/sonoma-wifi-hacks?tab=readme-ov-file) for an older guide with good information.
 - jsassu20 for [MacDown](https://macdown.uranusjr.com/) Markdown Editor   
-- [5T33Z0](https://github.com/5T33Z0) for a great MD template used for making this guide, and for creating great guides and write-ups in the community.
