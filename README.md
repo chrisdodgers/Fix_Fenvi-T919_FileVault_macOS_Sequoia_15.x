@@ -52,7 +52,7 @@ We also need to download AMFIPass. At the time of this guide, we will be using A
 
 2. Open [ProperTree Editor](https://github.com/corpnewt/ProperTree) and select your config.plist inside `EFI -> OC`.
 3. In the top menu, click on `File` and select `OC Snapshot`. This will automatically add and order our new kexts into our config.plist.
-4. Navigate to `Kernel -> Block` in your config.plist. You most likely will see an entry with an Identifier name that says `com.apple.IOSkywalkFamily`. Make sure you set `Enabled` = `True`!
+4. Navigate to `Kernel -> Block` in your config.plist. You most likely will see an entry with an Identifier name that says `com.apple.iokit.IOSkywalkFamily`. Make sure you set `Enabled` = `True`!
 
 ![KernelBlock](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/Kernel-Block-Config.png)</br>
 
