@@ -1,4 +1,4 @@
-# How to Fix Fenvi T919 Wi-Fi tested through macOS 15.7.4 (Sequoia) using OCLP and How to Fix Setting Up FileVault 
+# How to Fix Fenvi T919 Wi-Fi tested through macOS 26.7.1 (Tahoe) using OCLP and How to Fix Setting Up FileVault 
 [![FenviT919](https://img.shields.io/badge/Fenvi-T919-green)](https://www.fenvi.com/product_detail_16.html)
 ![MacOS](https://img.shields.io/badge/FileVault-blue.svg)
 ![MacOS](https://img.shields.io/badge/macOS-15.7.4-purple.svg)
@@ -7,11 +7,11 @@
 ![SequoiaLogo](https://github.com/chrisdodgers/Fix_Fenvi-T919_FileVault_macOS_Sequoia_15.x/blob/main/Photos/FenviT919%2BFileVault-Sequoia.png)</br>
 
 ## About:
-This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sequoia (This guide also applies to macOS Sonoma 14+). macOS 14+ has broken native support for the BCM94360CD, which is the Wi-Fi chipset used on the Fenvi T919. This guide has been tested up to macOS 15.7.4. This guide also includes how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
+This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS Sonoma-Tahoe. macOS 14+ has broken native support for the BCM94360CD, which is the Wi-Fi chipset used on the Fenvi T919. This guide has been tested up to macOS 26.7.1. This guide also includes how to fix/setup FileVault, as I was originally running into an "Invalid Password" error when trying to setup FileVault on macOS Sequoia when SIP was partially disabled. 
 
 
 >[!IMPORTANT]
->Update on macOS Tahoe: As of this point of writing - this guide does apply to macOS Tahoe*. HOWEVER, I would strongly suggest patiently waiting until the great hardworking folks at Dortania provide an official release package to download. You *can* clone and compile as of right now with success with a few slight edits, as I've done in my personal testing. *(or can grab a recent fork out there)*. Once again - I recommend sitting tight and waiting for an official release package from Dortania.   
+>Update on macOS Tahoe: Thanks to the hardworking great folks at Dortania, this now applies to Tahoe. At the time of writing - you can grab [OCLP 3.0.0-(RC3)](https://github.com/dortania/OpenCore-Legacy-Patcher/releases/tag/3.0.0-rc.3) which has Tahoe support. 
 ## What Works:
 
 | Feature           | Details       |
@@ -25,7 +25,7 @@ This is a simple guide on how to fix Wi-Fi with a Fenvi T919 when running macOS 
 
 
 ## Pre-Requisites:
-- You have already installed macOS 15.x Sequoia (or macOS 14+ Sonoma) on your system following the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/).
+- You have already installed macOS 14.x - 26.x on your system following the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/).
 - You have a Fenvi T919 installed in your system.
 
 
